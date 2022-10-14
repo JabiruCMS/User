@@ -25,8 +25,8 @@ class LoosePermissions extends StandardPermissions
                 // If the value is not in the array, we're opting in
                 if (! array_key_exists($key, $prepared)) {
                     $prepared[$key] = $value;
-
-                    continue;
+                } else {
+                    $prepared[$key] = $prepared[$key] || $value;
                 }
             }
         }
